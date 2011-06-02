@@ -1,0 +1,6 @@
+disbatch.rb 043d59ab84596d1c7f517a148f4a6ec2a7faffd0
+disbatch/node.rb 0b62ed46693d047d1c98a6a678fcebd4b50aabad
+disbatch/queue.rb 3b63fae61e5d46131e5e06ea3d010dbafeda3824
+disbatch/plugin.rb fe4694f9b0cc968ac04814b460353f3322dd530d
+disbatch/errors.rb 21a1a28ca484973b4996468d4eb41557af5782be
+disbatch/queue/task.rb 670bc725fd2db24aa19c1512c15d099096c813f5
