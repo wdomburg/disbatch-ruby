@@ -45,7 +45,6 @@ module Mongo
 	# 
 	# @param [Integer] max_retries maximum number of times to attempt to connect
 	# @param [Float] interval frequency of retry attempts
-
 	def self.try(max_retries=4,interval=0.5)
 		retries = 0
 		begin

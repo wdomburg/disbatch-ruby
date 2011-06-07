@@ -1,9 +1,11 @@
-# Represents a Disbatch queue class Disbatch::Queue
+# Represents a Disbatch queue
 class Disbatch::Queue
 
 	require 'disbatch/queue/task'
 
 	attr_reader :plugin, :id
+
+	alias :size :length
 
 	private_class_method :new
 
@@ -73,7 +75,8 @@ class Disbatch::Queue
 
 	end
 
-	def created
+	# Number of pending tasks
+	def length
 		Disbatch.db[:tasks].find({tid=> @id, :status=> -2}).count
 	end
 

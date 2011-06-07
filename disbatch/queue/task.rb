@@ -1,3 +1,4 @@
+# Represents a Disbatch task
 class Disbatch::Queue::Task
 
 	require 'pp'
@@ -10,7 +11,7 @@ class Disbatch::Queue::Task
 	#
 	# @param [Disbatch::Queue] queue
 	# @param [Hash] parameters
-	# @id [String] id
+	# @param [String] id
 	def initialize(queue, parameters, id)
 		@queue  = queue
 		@parameters = parameters
