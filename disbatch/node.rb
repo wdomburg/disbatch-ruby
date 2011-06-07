@@ -3,6 +3,8 @@ class Disbatch::Node
 
 	attr_accessor :id
 
+	private_class_method :new
+
 	# Create a node object
 	#
 	# @param [String] id 
@@ -16,14 +18,14 @@ class Disbatch::Node
 	# @param [String] id
 	def self.get(id)
 		Mongo.try do
-			Disbatch.db[:nodes].find_one({:_id => id}) ? self.new(id) : nil
+			Disbatch.db[:nodes].find_one({:_id => id}) ? new(id) : nil
 		end
 	end
 
 	# Get all existing nodes
 	def self.get_all
 		Mongo.try do
-			Disbatch.db[:nodes].find.map { |doc| self.new(doc[:_id]) }
+			Disbatch.db[:nodes].find.map { |doc| new(doc[:_id]) }
 		end
 	end
 
@@ -38,7 +40,7 @@ class Disbatch::Node
 			})
 		end
 
-		self.new(id)
+		new(id)
 	end
 
 	# Register node

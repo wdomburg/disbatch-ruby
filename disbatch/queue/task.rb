@@ -1,6 +1,10 @@
 class Disbatch::Queue::Task
 
+	require 'pp'
+
 	attr_reader :queue, :parameters, :id
+
+	private_class_method :new
 
 	# Create a task object
 	#
@@ -24,8 +28,12 @@ class Disbatch::Queue::Task
 			})
 		end
 
+		puts "DEBUG:"
+		pp doc
+		puts
+
 		unless doc.nil?
-			self.new(self, doc[:parameters], doc[:_id])
+			new(queue, doc['parameters'], doc['_id'])
 		end
 	end
 
@@ -49,7 +57,7 @@ class Disbatch::Queue::Task
 		end
 
 		unless id.nil?
-			self.new(queue, parameters, id)
+			new(queue, parameters, id)
 		end
 	end
 
@@ -114,17 +122,17 @@ class Disbatch::Queue::Task
 
 	# Fail task
 	def fail
-		self.status=-3
+		status=-3
 	end
 
 	# Release task
 	def release
-		self.status=-2
+		status=-2
 	end
 
 	# Conclude task
 	def conclude
-		self.status=1
+		status=1
 	end
 
 end

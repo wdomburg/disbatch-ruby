@@ -1,9 +1,11 @@
-# Represents a Disbatch queue
+# Represents a Disbatch queue class Disbatch::Queue
 class Disbatch::Queue
 
 	require 'disbatch/queue/task'
 
 	attr_reader :plugin, :id
+
+	private_class_method :new
 
 	# Create a queue object 
 	# 
@@ -19,11 +21,18 @@ class Disbatch::Queue
 	# @param [String] id
 	def self.get(id)
 		doc = Mongo.try do
-			Disbatch.db[:queues].find_one({:_id => @id})
+			Disbatch.db[:queues].find_one({:_id => id})
 		end
 
 		unless doc.nil?
-			self.new(doc[:plugin], @id)
+			new(doc[:plugin], id)
+		end
+	end
+
+	# Get all existing queues
+	def self.get_all
+		Mongo.try do
+			Disbatch.db[:queues].find.map { |doc| new(doc['class'], doc['_id']) } 
 		end
 	end
 
@@ -59,7 +68,7 @@ class Disbatch::Queue
 		end
 
 		unless doc.nil?
-			self.new(plugin, id)
+			new(plugin, id)
 		end
 
 	end
