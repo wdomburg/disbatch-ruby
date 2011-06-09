@@ -5,8 +5,6 @@ class Disbatch::Queue
 
 	attr_reader :plugin, :id
 
-	alias :size :length
-
 	private_class_method :new
 
 	# Create a queue object 
@@ -27,7 +25,7 @@ class Disbatch::Queue
 		end
 
 		unless doc.nil?
-			new(doc[:plugin], id)
+			new(doc['class'], id)
 		end
 	end
 
@@ -77,7 +75,7 @@ class Disbatch::Queue
 
 	# Number of pending tasks
 	def length
-		Disbatch.db[:tasks].find({tid=> @id, :status=> -2}).count
+		Disbatch.db[:tasks].find({_id => @id, :status=> -2}).count
 	end
 
 	# Push a new task onto the queue
@@ -96,5 +94,7 @@ class Disbatch::Queue
 	def ==(queue)
 		@id == queue.id
 	end
+
+	alias :size :length
 
 end

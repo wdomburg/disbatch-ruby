@@ -29,10 +29,6 @@ class Disbatch::Queue::Task
 			})
 		end
 
-		puts "DEBUG:"
-		pp doc
-		puts
-
 		unless doc.nil?
 			new(queue, doc['parameters'], doc['_id'])
 		end
@@ -45,15 +41,15 @@ class Disbatch::Queue::Task
 	def self.create(queue, parameters)
 		id = Mongo.try do
 			Disbatch.db[:tasks].insert({
-			'queue' => queue.id,
-			'parameters' => parameters,
-			'ctime' => Time.now,
-			'mtime' => Time.now,
+			:queue => queue.id,
+			:parameters => parameters,
+			:ctime => Time.now,
+			:mtime => Time.now,
 			:node => -1,
 			:status => -2,
-			'stdout' => '',
-			'stderr' => '',
-			'log' => []
+			:stdout => '',
+			:stderr => '',
+			:log => []
 			})
 		end
 
@@ -82,6 +78,7 @@ class Disbatch::Queue::Task
 	# @param [Symbol] attribute
 	# @param [Object] value
 	def update(attribute, value)
+		puts "updating #{attribute} to #{value}"
 		Disbatch.db[:tasks].update({:_id => @id}, {:$set => { attribute => value } })
 	end
 
@@ -134,6 +131,10 @@ class Disbatch::Queue::Task
 	# Conclude task
 	def conclude
 		status=1
+	end
+
+	def execute!
+		Disbatch::Plugin[queue.plugin].execute(self)
 	end
 
 end

@@ -1,4 +1,7 @@
-module Disbatch::Plugins
+module Disbatch::Plugin
+
+
+	attr_reader :plugins
 
 	@plugins = {}
 
@@ -6,7 +9,7 @@ module Disbatch::Plugins
 	def register(plugin)
 		name = plugin.to_s
 
-		return false unless plugin.responds_to?(execute)
+		return false unless plugin.respond_to?(:execute)
 
 		@plugins[name] = plugin
 		puts "Registered #{name}"
@@ -18,7 +21,7 @@ module Disbatch::Plugins
 	end
 
 	# Attempt to load a plugin file
-	def load(file)
+	def init(file)
 		begin
 			load file
 			puts "Loaded #{file}"
@@ -28,7 +31,7 @@ module Disbatch::Plugins
 	end
 
 	# Attempt to load all plugin files in a directory
-	def load_all(path)
+	def init_all(path)
 		Dir(path).each { |file| load(file) }
 	end
 
