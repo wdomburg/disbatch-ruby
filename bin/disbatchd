@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'disbatch'
+require 'eventmachine'
+
+node = Disbatch.node.register
+max  = ARGV.shift.to_i
+
+puts "node: #{node.id} max: #{max}"
+
+Disbatch::Plugin.init_all('lib/disbatch/plugin/**/*.rb')
+
+EventMachine::run do
+
+	queues = Disbatch::Queue.get_all
+
+	queues.each do |queue|
+
+		next unless Disbatch::Plugin[queue.plugin]
+
+		puts "Adding #{queue.plugin} runner for #{queue.id}"
+
+		tg = ThreadGroup.new
+
+		EventMachine::add_periodic_timer(0.1) do
+
+			next unless ((nt = tg.list.length) < max && (np = queue.length) > 0)
+
+			ft = max - nt
+
+			(np > ft ? ft : np).times do
+				t = Thread.new do
+					task = queue.pop
+
+					unless defined?(task) && !task.nil? && task.params 
+						puts 'Huh?  Got invalid task back.'
+						next
+					end
+
+					begin
+						task.execute!
+					rescue
+						puts 'Damn.  Execution failed.'
+						task.release
+					end
+				end
+
+				tg.add(t)
+			end
+
+		end
+
+	end
+
+end

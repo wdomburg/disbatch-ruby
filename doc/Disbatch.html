@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=c" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
   Module: Disbatch
   
-    &mdash; Documentation by YARD 0.7.1
+    &mdash; Documentation by YARD 0.7.3
   
 </title>
 
@@ -80,8 +80,8 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">disbatch.rb<span class="defines">,<br />
-  disbatch/errors.rb</span>
+    <dd class="r1 last">lib/disbatch.rb<span class="defines">,<br />
+  lib/disbatch/errors.rb</span>
 </dd>
   
 </dl>
@@ -91,7 +91,7 @@
 <p class="children">
    
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Disbatch/Plugins.html" title="Disbatch::Plugins (module)">Plugins</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Disbatch/Plugin.html" title="Disbatch::Plugin (module)">Plugin</a></span>
     
    
     
@@ -116,9 +116,10 @@ engine version
 </div>
 <div class="tags">
   
+
 </div>
         </dt>
-        <dd><pre class="code"><span class='string val'>'rdisbatch 0.0.1'</span>
+        <dd><pre class="code"><span class='string val'>'rdisbatch 0.0.2'</span>
 </pre></dd>
       
         <dt id="SPEC_VERSION-constant" class="">SPEC_VERSION =
@@ -133,6 +134,7 @@ specification version
 </div>
 <div class="tags">
   
+
 </div>
         </dt>
         <dd><pre class="code"><span class='string val'>'1.9'</span>
@@ -342,6 +344,7 @@ Returns the value of attribute mongo_db
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -353,7 +356,7 @@ Returns the value of attribute mongo_db
 11</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch.rb', line 9</span>
 
 <span class='def def kw'>def</span> <span class='mongo_db identifier id'>mongo_db</span>
   <span class='@mongo_db ivar id'>@mongo_db</span>
@@ -385,6 +388,7 @@ Returns the value of attribute mongo_hosts
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -396,7 +400,7 @@ Returns the value of attribute mongo_hosts
 10</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch.rb', line 8</span>
 
 <span class='def def kw'>def</span> <span class='mongo_hosts identifier id'>mongo_hosts</span>
   <span class='@mongo_hosts ivar id'>@mongo_hosts</span>
@@ -428,6 +432,7 @@ Returns the value of attribute mongo_opts
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -439,7 +444,7 @@ Returns the value of attribute mongo_opts
 12</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch.rb', line 10</span>
 
 <span class='def def kw'>def</span> <span class='mongo_opts identifier id'>mongo_opts</span>
   <span class='@mongo_opts ivar id'>@mongo_opts</span>
@@ -471,6 +476,7 @@ Returns the value of attribute node_id
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -482,7 +488,7 @@ Returns the value of attribute node_id
 14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch.rb', line 12</span>
 
 <span class='def def kw'>def</span> <span class='node_id identifier id'>node_id</span>
   <span class='@node_id ivar id'>@node_id</span>
@@ -518,6 +524,7 @@ Return and cache the MongoDB connection pool
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -529,7 +536,7 @@ Return and cache the MongoDB connection pool
 31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch.rb', line 29</span>
 
 <span class='def def kw'>def</span> <span class='db identifier id'>db</span>
   <span class='@db ivar id'>@db</span> <span class='opasgn op'>||=</span> <span class='Mongo constant id'>Mongo</span><span class='colon2 op'>::</span><span class='ReplSetConnection constant id'>ReplSetConnection</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='lparen token'>(</span><span class='@mongo_hosts ivar id'>@mongo_hosts</span> <span class='lshft op'>&lt;&lt;</span> <span class='@mongo_opts ivar id'>@mongo_opts</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lparen token'>(</span><span class='@mongo_db ivar id'>@mongo_db</span><span class='rparen token'>)</span>
@@ -558,6 +565,7 @@ Return and cache the local node object
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -569,7 +577,7 @@ Return and cache the local node object
 36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch.rb', line 34</span>
 
 <span class='def def kw'>def</span> <span class='node identifier id'>node</span>
   <span class='@node ivar id'>@node</span> <span class='opasgn op'>||=</span> <span class='Disbatch constant id'>Disbatch</span><span class='colon2 op'>::</span><span class='Node constant id'>Node</span><span class='dot token'>.</span><span class='get identifier id'>get</span><span class='lparen token'>(</span><span class='@node_id ivar id'>@node_id</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='Disbatch constant id'>Disbatch</span><span class='colon2 op'>::</span><span class='Node constant id'>Node</span><span class='dot token'>.</span><span class='create identifier id'>create</span><span class='lparen token'>(</span><span class='@node_id ivar id'>@node_id</span><span class='rparen token'>)</span>
@@ -585,9 +593,9 @@ Return and cache the local node object
 </div>
     
     <div id="footer">
-  Generated on Tue Jun  7 17:28:11 2011 by 
+  Generated on Mon Oct 24 16:53:58 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.1 (ruby-1.8.7).
+  0.7.3 (ruby-1.8.7).
 </div>
 
   </body>

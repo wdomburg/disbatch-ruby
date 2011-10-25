@@ -2,11 +2,11 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=c" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
   Class: Disbatch::Queue::Task
   
-    &mdash; Documentation by YARD 0.7.1
+    &mdash; Documentation by YARD 0.7.3
   
 </title>
 
@@ -87,7 +87,7 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">disbatch/queue/task.rb</dd>
+    <dd class="r2 last">lib/disbatch/queue/task.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -103,6 +103,7 @@ Represents a Disbatch task
 </div>
 <div class="tags">
   
+
 </div>
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
@@ -141,6 +142,8 @@ Returns the value of attribute id.
       <a href="#parameters-instance_method" title="#parameters (instance method)">- (Object) <strong>parameters</strong> </a>
     
 
+    
+      (also: #params)
     
   </span>
   
@@ -277,6 +280,30 @@ Take a task.
   
     <span class="summary_desc"><div class='inline'><p>
 Conclude task.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute%21-instance_method" title="#execute! (instance method)">- (Object) <strong>execute!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Execute the task.
 </p>
 </div></span>
   
@@ -634,6 +661,7 @@ Create a task object
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -647,7 +675,7 @@ Create a task object
 19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 15</span>
 
 <span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='queue identifier id'>queue</span><span class='comma token'>,</span> <span class='parameters identifier id'>parameters</span><span class='comma token'>,</span> <span class='id identifier id'>id</span><span class='rparen token'>)</span>
   <span class='@queue ivar id'>@queue</span>  <span class='assign token'>=</span> <span class='queue identifier id'>queue</span>
@@ -686,6 +714,7 @@ Returns the value of attribute id
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -697,7 +726,7 @@ Returns the value of attribute id
 8</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 6</span>
 
 <span class='def def kw'>def</span> <span class='id identifier id'>id</span>
   <span class='@id ivar id'>@id</span>
@@ -718,6 +747,10 @@ Returns the value of attribute id
   
 
   
+    <span class="aliases">Also known as:
+    <span class="names"><span id='params-instance_method'>params</span></span>
+    </span>
+  
 </p><div class="docstring">
   <div class="discussion">
     <p>
@@ -729,6 +762,7 @@ Returns the value of attribute parameters
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -740,7 +774,7 @@ Returns the value of attribute parameters
 8</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 6</span>
 
 <span class='def def kw'>def</span> <span class='parameters identifier id'>parameters</span>
   <span class='@parameters ivar id'>@parameters</span>
@@ -772,6 +806,7 @@ Returns the value of attribute queue
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -783,7 +818,7 @@ Returns the value of attribute queue
 8</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 6</span>
 
 <span class='def def kw'>def</span> <span class='queue identifier id'>queue</span>
   <span class='@queue ivar id'>@queue</span>
@@ -851,12 +886,17 @@ queue
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
+41
+42
+43
+44
 45
 46
 47
@@ -871,27 +911,23 @@ queue
 56
 57
 58
-59
-60
-61
-62
-63</pre>
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 41</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='create identifier id'>create</span><span class='lparen token'>(</span><span class='queue identifier id'>queue</span><span class='comma token'>,</span> <span class='parameters identifier id'>parameters</span><span class='rparen token'>)</span>
   <span class='id identifier id'>id</span> <span class='assign token'>=</span> <span class='Mongo constant id'>Mongo</span><span class='dot token'>.</span><span class='try identifier id'>try</span> <span class='do do kw'>do</span>
     <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:tasks</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='insert identifier id'>insert</span><span class='lparen token'>(</span><span class='lbrace token'>{</span>
-    <span class='string val'>'queue'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='queue identifier id'>queue</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span>
-    <span class='string val'>'parameters'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='parameters identifier id'>parameters</span><span class='comma token'>,</span>
-    <span class='string val'>'ctime'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span><span class='comma token'>,</span>
-    <span class='string val'>'mtime'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span><span class='comma token'>,</span>
+    <span class='symbol val'>:queue</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='queue identifier id'>queue</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span>
+    <span class='symbol val'>:parameters</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='parameters identifier id'>parameters</span><span class='comma token'>,</span>
+    <span class='symbol val'>:ctime</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span><span class='comma token'>,</span>
+    <span class='symbol val'>:mtime</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span><span class='comma token'>,</span>
     <span class='symbol val'>:node</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>-1</span><span class='comma token'>,</span>
     <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>-2</span><span class='comma token'>,</span>
-    <span class='string val'>'stdout'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>''</span><span class='comma token'>,</span>
-    <span class='string val'>'stderr'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>''</span><span class='comma token'>,</span>
-    <span class='string val'>'log'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='symbol val'>:stdout</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>''</span><span class='comma token'>,</span>
+    <span class='symbol val'>:stderr</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>''</span><span class='comma token'>,</span>
+    <span class='symbol val'>:log</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
     <span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='end end kw'>end</span>
 
@@ -938,6 +974,7 @@ Take a task
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
@@ -955,14 +992,10 @@ Take a task
 32
 33
 34
-35
-36
-37
-38
-39</pre>
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 24</span>
 
 <span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='take identifier id'>take</span><span class='lparen token'>(</span><span class='queue identifier id'>queue</span><span class='rparen token'>)</span>
   <span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Mongo constant id'>Mongo</span><span class='dot token'>.</span><span class='try identifier id'>try</span> <span class='do do kw'>do</span>
@@ -971,10 +1004,6 @@ Take a task
       <span class='symbol val'>:update</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='symbol val'>:$set</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='symbol val'>:node</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='node identifier id'>node</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>-1</span><span class='comma token'>,</span> <span class='rbrace token'>}</span> <span class='rbrace token'>}</span>
     <span class='rbrace token'>}</span><span class='rparen token'>)</span>
   <span class='end end kw'>end</span>
-
-  <span class='puts identifier id'>puts</span> <span class='string val'>&quot;DEBUG:&quot;</span>
-  <span class='pp identifier id'>pp</span> <span class='doc identifier id'>doc</span>
-  <span class='puts identifier id'>puts</span>
 
   <span class='unless unless kw'>unless</span> <span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
     <span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='queue identifier id'>queue</span><span class='comma token'>,</span> <span class='doc identifier id'>doc</span><span class='lbrack token'>[</span><span class='string val'>'parameters'</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='doc identifier id'>doc</span><span class='lbrack token'>[</span><span class='string val'>'_id'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
@@ -1010,21 +1039,63 @@ Conclude task
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-135
-136
-137</pre>
+131
+132
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 135</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 131</span>
 
 <span class='def def kw'>def</span> <span class='conclude identifier id'>conclude</span>
-  <span class='status identifier id'>status</span><span class='assign token'>=</span><span class='integer val'>1</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='status identifier id'>status</span><span class='assign token'>=</span><span class='integer val'>1</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="execute!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>execute!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Execute the task
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 136</span>
+
+<span class='def def kw'>def</span> <span class='execute! fid id'>execute!</span>
+  <span class='Disbatch constant id'>Disbatch</span><span class='colon2 op'>::</span><span class='Plugin constant id'>Plugin</span><span class='lbrack token'>[</span><span class='queue identifier id'>queue</span><span class='dot token'>.</span><span class='plugin identifier id'>plugin</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1050,21 +1121,22 @@ Fail task
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-125
-126
-127</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 121</span>
 
 <span class='def def kw'>def</span> <span class='fail identifier id'>fail</span>
-  <span class='status identifier id'>status</span><span class='assign token'>=</span><span class='integer val'>-3</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='status identifier id'>status</span><span class='assign token'>=</span><span class='integer val'>-3</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1105,18 +1177,19 @@ Log a message
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-68
-69
-70</pre>
+64
+65
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 64</span>
 
 <span class='def def kw'>def</span> <span class='log identifier id'>log</span><span class='lparen token'>(</span><span class='message identifier id'>message</span><span class='rparen token'>)</span>
   <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:tasks</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@id ivar id'>@id</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='string val'>'$push'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>'log'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span><span class='message identifier id'>message</span><span class='rbrace token'>}</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span>
@@ -1152,7 +1225,7 @@ Query a task attribute
         <span class='name'>attribute</span>
       
       
-        <span class='type'>(<tt>Symbol</tt>)</span>
+        <span class='type'>(<tt>String</tt>)</span>
       
       
       
@@ -1160,22 +1233,23 @@ Query a task attribute
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-75
-76
-77
-78</pre>
+71
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 71</span>
 
 <span class='def def kw'>def</span> <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='attribute identifier id'>attribute</span><span class='rparen token'>)</span>
-  <span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Mongo constant id'>Mongo</span><span class='dot token'>.</span><span class='try identifier id'>try</span> <span class='lbrace token'>{</span> <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:tasks</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='find_one identifier id'>find_one</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@id ivar id'>@id</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='attribute identifier id'>attribute</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>1</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+  <span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Mongo constant id'>Mongo</span><span class='dot token'>.</span><span class='try identifier id'>try</span> <span class='lbrace token'>{</span> <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:tasks</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='find_one identifier id'>find_one</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@id ivar id'>@id</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='lbrace token'>{</span> <span class='symbol val'>:fields</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='attribute identifier id'>attribute</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>1</span> <span class='rbrace token'>}</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
   <span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='integer val'>? </span><span class='nil nil kw'>nil</span> <span class='colon op'>:</span> <span class='doc identifier id'>doc</span><span class='lbrack token'>[</span><span class='attribute identifier id'>attribute</span><span class='rbrack token'>]</span>
 <span class='end end kw'>end</span>
 </pre>
@@ -1202,21 +1276,22 @@ Release task
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-130
-131
-132</pre>
+126
+127
+128</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 126</span>
 
 <span class='def def kw'>def</span> <span class='release identifier id'>release</span>
-  <span class='status identifier id'>status</span><span class='assign token'>=</span><span class='integer val'>-2</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='status identifier id'>status</span><span class='assign token'>=</span><span class='integer val'>-2</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1242,21 +1317,22 @@ Query task status
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-89
-90
-91</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 89</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 85</span>
 
 <span class='def def kw'>def</span> <span class='status identifier id'>status</span>
-  <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='symbol val'>:status</span><span class='rparen token'>)</span>
+  <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='string val'>'status'</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1297,18 +1373,19 @@ Set task status
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-96
-97
-98</pre>
+92
+93
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 92</span>
 
 <span class='def def kw'>def</span> <span class='status= identifier id'>status=</span><span class='lparen token'>(</span><span class='status identifier id'>status</span><span class='rparen token'>)</span>
   <span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='symbol val'>:status</span><span class='comma token'>,</span><span class='status identifier id'>status</span><span class='rparen token'>)</span>
@@ -1337,21 +1414,22 @@ Query stderr
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-113
-114
-115</pre>
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 113</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 109</span>
 
 <span class='def def kw'>def</span> <span class='stderr identifier id'>stderr</span> 
-  <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='symbol val'>:stderr</span><span class='rparen token'>)</span>
+  <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='string val'>'stderr'</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1392,18 +1470,19 @@ Set stdout
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-120
-121
-122</pre>
+116
+117
+118</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 120</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 116</span>
 
 <span class='def def kw'>def</span> <span class='stderr= identifier id'>stderr=</span><span class='lparen token'>(</span><span class='message identifier id'>message</span><span class='rparen token'>)</span>
   <span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='symbol val'>:stdout</span><span class='comma token'>,</span><span class='message identifier id'>message</span><span class='rparen token'>)</span>
@@ -1432,21 +1511,22 @@ Query stdout
 </div>
 <div class="tags">
   
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-101
-102
-103</pre>
+97
+98
+99</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 101</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 97</span>
 
 <span class='def def kw'>def</span> <span class='stdout identifier id'>stdout</span> 
-  <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='symbol val'>:stdout</span><span class='rparen token'>)</span>
+  <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='string val'>'stdout'</span><span class='rparen token'>)</span>
 <span class='end end kw'>end</span>
 </pre>
     </td>
@@ -1487,18 +1567,19 @@ Set stdout
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-108
-109
-110</pre>
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 104</span>
 
 <span class='def def kw'>def</span> <span class='stdout= identifier id'>stdout=</span><span class='lparen token'>(</span><span class='message identifier id'>message</span><span class='rparen token'>)</span>
   <span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='symbol val'>:stdout</span><span class='comma token'>,</span><span class='message identifier id'>message</span><span class='rparen token'>)</span>
@@ -1553,18 +1634,19 @@ Update a task attribute
   
 </ul>
 
+
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-84
-85
-86</pre>
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'disbatch/queue/task.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 80</span>
 
 <span class='def def kw'>def</span> <span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='attribute identifier id'>attribute</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
   <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:tasks</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@id ivar id'>@id</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='symbol val'>:$set</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='attribute identifier id'>attribute</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='value identifier id'>value</span> <span class='rbrace token'>}</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span>
@@ -1580,9 +1662,9 @@ Update a task attribute
 </div>
     
     <div id="footer">
-  Generated on Tue Jun  7 17:28:11 2011 by 
+  Generated on Mon Oct 24 16:54:01 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.1 (ruby-1.8.7).
+  0.7.3 (ruby-1.8.7).
 </div>
 
   </body>
