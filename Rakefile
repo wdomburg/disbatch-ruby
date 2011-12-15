@@ -22,9 +22,9 @@ spec = Gem::Specification.new do |s|
 	s.add_dependency("json")
 	s.add_dependency("mongo")
 	s.add_dependency("trollop")
-	if defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
-		s.add_dependency("jruby-openssl")
-	end
+#	if defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
+#		s.add_dependency("jruby-openssl")
+#	end
 	#s.test_files = FileList["{test}/**/*test.rb"].to_a
 	s.has_rdoc = true
 	s.extra_rdoc_files = ["README", "LICENSE", "disbatch_specification.txt"]
