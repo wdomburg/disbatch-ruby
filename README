@@ -1,0 +1,28 @@
+Disbatch is a distributed, multi-language batch processing platform. This package provides both a client library and execution node implementation. 
+
+The current packaging is a bit raw, but an earlier version of this has been successfully used in production for a number of tasks, including mass mailing, user migrations and load generation.
+
+If you have mongod installed and running, the daemon should start without parameters or configuration, and queues and tasks can be created interactively through a ruby shell or programatically through a script:
+
+[mberg@c6 ~]$ irb 
+irb(main):001:0> require 'rubygems'
+=> true
+irb(main):002:0> require 'disbatch'
+=> true
+irb(main):003:0> q = Disbatch::Queue.create('Disbatch::Plugin::Hello')
+=> #<Disbatch::Queue:0x7f9e38d78948 @id="4eea39ce250c600d5d000001", @plugin="Disbatch::Plugin::Hello">
+irb(main):004:0> q.push( { 'name' => 'Matt' } )
+=> #<Disbatch::Queue:0x7f9e38d78948 @id="4eea39ce250c600d5d000001", @plugin="Disbatch::Plugin::Hello">
+
+In order to facilitate plugin development, tasks can also be executed without running an execution node; e.g.
+
+irb(main):005:0> require 'disbatch/plugin/hello.rb'
+Registered Disbatch::Plugin::Hello
+irb(main):006:0> t = q.pop
+=> #<Disbatch::Queue::Task:0x7f9e38d56460 @id=BSON::ObjectId('4eea3a9a250c600d5d000003'), @parameters=#<BSON::OrderedHash:0x3fcf1c6abf14 {"name"=>"Matt"}>, @queue=#<Disbatch::Queue:0x7f9e38d78948 @id="4eea39ce250c600d5d000001", @plugin="Disbatch::Plugin::Hello">>
+irb(main):007:0> t.execute!
+Executed task with params: #<BSON::OrderedHash:0x3fcf1c6abf14 {"name"=>"Matt"}>
+=> 1
+
+
+Feel free to ask questions or feedback through mail, or message me on freenode.  I'm usually logged in as "mberg" even if I am not available.

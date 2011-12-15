@@ -4,7 +4,7 @@ require 'yard'
 
 spec = Gem::Specification.new do |s| 
 	s.name = "disbatch"
-	s.version = "0.0.4"
+	s.version = "0.0.6"
 	s.author = "Matthew Berg"
 	s.email = "mberg@synacor.com"
 	s.homepage = "http://disbatch.org/projects/disbatch-ruby"
@@ -22,6 +22,7 @@ spec = Gem::Specification.new do |s|
 	s.add_dependency("json")
 	s.add_dependency("mongo")
 	s.add_dependency("trollop")
+	s.add_dependency("eventmachine")
 #	if defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
 #		s.add_dependency("jruby-openssl")
 #	end
