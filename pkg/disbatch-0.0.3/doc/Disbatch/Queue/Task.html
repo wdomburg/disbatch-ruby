@@ -1,0 +1,1671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Disbatch::Queue::Task
+  
+    &mdash; Documentation by YARD 0.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (T)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../Disbatch.html" title="Disbatch (module)">Disbatch</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Queue.html" title="Disbatch::Queue (class)">Queue</a></span></span>
+     &raquo; 
+    <span class="title">Task</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Disbatch::Queue::Task
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Disbatch::Queue::Task</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/disbatch/queue/task.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Represents a Disbatch task
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#id-instance_method" title="#id (instance method)">- (Object) <strong>id</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute id.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#parameters-instance_method" title="#parameters (instance method)">- (Object) <strong>parameters</strong> </a>
+    
+
+    
+      (also: #params)
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute parameters.
+</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#queue-instance_method" title="#queue (instance method)">- (Object) <strong>queue</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title readonly">readonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Returns the value of attribute queue.
+</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create-class_method" title="create (class method)">+ (Object) <strong>create</strong>(queue, parameters) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Create a new task.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#take-class_method" title="take (class method)">+ (Object) <strong>take</strong>(queue) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Take a task.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#conclude-instance_method" title="#conclude (instance method)">- (Object) <strong>conclude</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Conclude task.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute%21-instance_method" title="#execute! (instance method)">- (Object) <strong>execute!</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Execute the task.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fail-instance_method" title="#fail (instance method)">- (Object) <strong>fail</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Fail task.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Task) <strong>initialize</strong>(queue, parameters, id) </a>
+    
+
+    
+  </span>
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Create a task object.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#log-instance_method" title="#log (instance method)">- (Object) <strong>log</strong>(message) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Log a message.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#query-instance_method" title="#query (instance method)">- (Object) <strong>query</strong>(attribute) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Query a task attribute.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#release-instance_method" title="#release (instance method)">- (Object) <strong>release</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Release task.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status-instance_method" title="#status (instance method)">- (Object) <strong>status</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Query task status.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#status%3D-instance_method" title="#status= (instance method)">- (Object) <strong>status=</strong>(status) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Set task status.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stderr-instance_method" title="#stderr (instance method)">- (Object) <strong>stderr</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Query stderr.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stderr%3D-instance_method" title="#stderr= (instance method)">- (Object) <strong>stderr=</strong>(message) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Set stdout.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stdout-instance_method" title="#stdout (instance method)">- (Object) <strong>stdout</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Query stdout.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stdout%3D-instance_method" title="#stdout= (instance method)">- (Object) <strong>stdout=</strong>(message) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Set stdout.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong>(attribute, value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Update a task attribute.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <p class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="Disbatch::Queue::Task (class)">Task</a></span></tt>) <strong>initialize</strong>(queue, parameters, id) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a task object
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>queue</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Queue.html" title="Disbatch::Queue (class)">Disbatch::Queue</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>parameters</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>id</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 15</span>
+
+<span class='def def kw'>def</span> <span class='initialize identifier id'>initialize</span><span class='lparen token'>(</span><span class='queue identifier id'>queue</span><span class='comma token'>,</span> <span class='parameters identifier id'>parameters</span><span class='comma token'>,</span> <span class='id identifier id'>id</span><span class='rparen token'>)</span>
+  <span class='@queue ivar id'>@queue</span>  <span class='assign token'>=</span> <span class='queue identifier id'>queue</span>
+  <span class='@parameters ivar id'>@parameters</span> <span class='assign token'>=</span> <span class='parameters identifier id'>parameters</span>
+  <span class='@id ivar id'>@id</span>     <span class='assign token'>=</span> <span class='id identifier id'>id</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <span id="id-instance_method"></span>
+      <div class="method_details first">
+  <p class="signature first" id="id-instance_method">
+  
+    - (<tt>Object</tt>) <strong>id</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute id
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 6</span>
+
+<span class='def def kw'>def</span> <span class='id identifier id'>id</span>
+  <span class='@id ivar id'>@id</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="parameters-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="parameters-instance_method">
+  
+    - (<tt>Object</tt>) <strong>parameters</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='params-instance_method'>params</span></span>
+    </span>
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute parameters
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 6</span>
+
+<span class='def def kw'>def</span> <span class='parameters identifier id'>parameters</span>
+  <span class='@parameters ivar id'>@parameters</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <span id="queue-instance_method"></span>
+      <div class="method_details ">
+  <p class="signature " id="queue-instance_method">
+  
+    - (<tt>Object</tt>) <strong>queue</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Returns the value of attribute queue
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 6</span>
+
+<span class='def def kw'>def</span> <span class='queue identifier id'>queue</span>
+  <span class='@queue ivar id'>@queue</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="create-class_method">
+  
+    + (<tt>Object</tt>) <strong>create</strong>(queue, parameters) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a new task
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>Disbatch::Queue</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Queue.html" title="Disbatch::Queue (class)">Disbatch::Queue</a></span> queue</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+queue
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>parameters</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 41</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='create identifier id'>create</span><span class='lparen token'>(</span><span class='queue identifier id'>queue</span><span class='comma token'>,</span> <span class='parameters identifier id'>parameters</span><span class='rparen token'>)</span>
+  <span class='id identifier id'>id</span> <span class='assign token'>=</span> <span class='Mongo constant id'>Mongo</span><span class='dot token'>.</span><span class='try identifier id'>try</span> <span class='do do kw'>do</span>
+    <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:tasks</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='insert identifier id'>insert</span><span class='lparen token'>(</span><span class='lbrace token'>{</span>
+    <span class='symbol val'>:queue</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='queue identifier id'>queue</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span>
+    <span class='symbol val'>:parameters</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='parameters identifier id'>parameters</span><span class='comma token'>,</span>
+    <span class='symbol val'>:ctime</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span><span class='comma token'>,</span>
+    <span class='symbol val'>:mtime</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span><span class='comma token'>,</span>
+    <span class='symbol val'>:node</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>-1</span><span class='comma token'>,</span>
+    <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>-2</span><span class='comma token'>,</span>
+    <span class='symbol val'>:stdout</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>''</span><span class='comma token'>,</span>
+    <span class='symbol val'>:stderr</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>''</span><span class='comma token'>,</span>
+    <span class='symbol val'>:log</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='unless unless kw'>unless</span> <span class='id identifier id'>id</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+    <span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='queue identifier id'>queue</span><span class='comma token'>,</span> <span class='parameters identifier id'>parameters</span><span class='comma token'>,</span> <span class='id identifier id'>id</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="take-class_method">
+  
+    + (<tt>Object</tt>) <strong>take</strong>(queue) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Take a task
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>queue</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Queue.html" title="Disbatch::Queue (class)">Disbatch::Queue</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 24</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='take identifier id'>take</span><span class='lparen token'>(</span><span class='queue identifier id'>queue</span><span class='rparen token'>)</span>
+  <span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Mongo constant id'>Mongo</span><span class='dot token'>.</span><span class='try identifier id'>try</span> <span class='do do kw'>do</span>
+    <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:tasks</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='find_and_modify identifier id'>find_and_modify</span><span class='lparen token'>(</span><span class='lbrace token'>{</span>
+      <span class='symbol val'>:query</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='symbol val'>:queue</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='queue identifier id'>queue</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>-2</span> <span class='rbrace token'>}</span><span class='comma token'>,</span>
+      <span class='symbol val'>:update</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='symbol val'>:$set</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='symbol val'>:node</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='node identifier id'>node</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>-1</span><span class='comma token'>,</span> <span class='rbrace token'>}</span> <span class='rbrace token'>}</span>
+    <span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='unless unless kw'>unless</span> <span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span>
+    <span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='queue identifier id'>queue</span><span class='comma token'>,</span> <span class='doc identifier id'>doc</span><span class='lbrack token'>[</span><span class='string val'>'parameters'</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='doc identifier id'>doc</span><span class='lbrack token'>[</span><span class='string val'>'_id'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="conclude-instance_method">
+  
+    - (<tt>Object</tt>) <strong>conclude</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Conclude task
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 131</span>
+
+<span class='def def kw'>def</span> <span class='conclude identifier id'>conclude</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='status identifier id'>status</span><span class='assign token'>=</span><span class='integer val'>1</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="execute!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>execute!</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Execute the task
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 136</span>
+
+<span class='def def kw'>def</span> <span class='execute! fid id'>execute!</span>
+  <span class='Disbatch constant id'>Disbatch</span><span class='colon2 op'>::</span><span class='Plugin constant id'>Plugin</span><span class='lbrack token'>[</span><span class='queue identifier id'>queue</span><span class='dot token'>.</span><span class='plugin identifier id'>plugin</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="fail-instance_method">
+  
+    - (<tt>Object</tt>) <strong>fail</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Fail task
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 121</span>
+
+<span class='def def kw'>def</span> <span class='fail identifier id'>fail</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='status identifier id'>status</span><span class='assign token'>=</span><span class='integer val'>-3</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="log-instance_method">
+  
+    - (<tt>Object</tt>) <strong>log</strong>(message) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Log a message
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 64</span>
+
+<span class='def def kw'>def</span> <span class='log identifier id'>log</span><span class='lparen token'>(</span><span class='message identifier id'>message</span><span class='rparen token'>)</span>
+  <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:tasks</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@id ivar id'>@id</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='string val'>'$push'</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>'log'</span><span class='assign token'>=</span><span class='gt op'>&gt;</span><span class='message identifier id'>message</span><span class='rbrace token'>}</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="query-instance_method">
+  
+    - (<tt>Object</tt>) <strong>query</strong>(attribute) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Query a task attribute
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>attribute</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 71</span>
+
+<span class='def def kw'>def</span> <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='attribute identifier id'>attribute</span><span class='rparen token'>)</span>
+  <span class='doc identifier id'>doc</span> <span class='assign token'>=</span> <span class='Mongo constant id'>Mongo</span><span class='dot token'>.</span><span class='try identifier id'>try</span> <span class='lbrace token'>{</span> <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:tasks</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='find_one identifier id'>find_one</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@id ivar id'>@id</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='lbrace token'>{</span> <span class='symbol val'>:fields</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='attribute identifier id'>attribute</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>1</span> <span class='rbrace token'>}</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span> <span class='rbrace token'>}</span>
+  <span class='doc identifier id'>doc</span><span class='dot token'>.</span><span class='nil? fid id'>nil?</span> <span class='integer val'>? </span><span class='nil nil kw'>nil</span> <span class='colon op'>:</span> <span class='doc identifier id'>doc</span><span class='lbrack token'>[</span><span class='attribute identifier id'>attribute</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="release-instance_method">
+  
+    - (<tt>Object</tt>) <strong>release</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Release task
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126
+127
+128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 126</span>
+
+<span class='def def kw'>def</span> <span class='release identifier id'>release</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='status identifier id'>status</span><span class='assign token'>=</span><span class='integer val'>-2</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="status-instance_method">
+  
+    - (<tt>Object</tt>) <strong>status</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Query task status
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 85</span>
+
+<span class='def def kw'>def</span> <span class='status identifier id'>status</span>
+  <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='string val'>'status'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="status=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>status=</strong>(status) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set task status
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>status</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 92</span>
+
+<span class='def def kw'>def</span> <span class='status= identifier id'>status=</span><span class='lparen token'>(</span><span class='status identifier id'>status</span><span class='rparen token'>)</span>
+  <span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='symbol val'>:status</span><span class='comma token'>,</span><span class='status identifier id'>status</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stderr-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stderr</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Query stderr
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 109</span>
+
+<span class='def def kw'>def</span> <span class='stderr identifier id'>stderr</span> 
+  <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='string val'>'stderr'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stderr=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stderr=</strong>(message) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set stdout
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 116</span>
+
+<span class='def def kw'>def</span> <span class='stderr= identifier id'>stderr=</span><span class='lparen token'>(</span><span class='message identifier id'>message</span><span class='rparen token'>)</span>
+  <span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='symbol val'>:stdout</span><span class='comma token'>,</span><span class='message identifier id'>message</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stdout-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stdout</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Query stdout
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 97</span>
+
+<span class='def def kw'>def</span> <span class='stdout identifier id'>stdout</span> 
+  <span class='query identifier id'>query</span><span class='lparen token'>(</span><span class='string val'>'stdout'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="stdout=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stdout=</strong>(message) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Set stdout
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 104</span>
+
+<span class='def def kw'>def</span> <span class='stdout= identifier id'>stdout=</span><span class='lparen token'>(</span><span class='message identifier id'>message</span><span class='rparen token'>)</span>
+  <span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='symbol val'>:stdout</span><span class='comma token'>,</span><span class='message identifier id'>message</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="update-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update</strong>(attribute, value) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Update a task attribute
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>attribute</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/disbatch/queue/task.rb', line 80</span>
+
+<span class='def def kw'>def</span> <span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='attribute identifier id'>attribute</span><span class='comma token'>,</span> <span class='value identifier id'>value</span><span class='rparen token'>)</span>
+  <span class='Disbatch constant id'>Disbatch</span><span class='dot token'>.</span><span class='db identifier id'>db</span><span class='lbrack token'>[</span><span class='symbol val'>:tasks</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='update identifier id'>update</span><span class='lparen token'>(</span><span class='lbrace token'>{</span><span class='symbol val'>:_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@id ivar id'>@id</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='symbol val'>:$set</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='attribute identifier id'>attribute</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='value identifier id'>value</span> <span class='rbrace token'>}</span> <span class='rbrace token'>}</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Oct 24 16:54:01 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.3 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

@@ -21,6 +21,7 @@ spec = Gem::Specification.new do |s|
 	s.add_dependency("bson")
 	s.add_dependency("json")
 	s.add_dependency("mongo")
+	s.add_dependency("trollop")
 	if defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
 		s.add_dependency("jruby-openssl")
 	end
