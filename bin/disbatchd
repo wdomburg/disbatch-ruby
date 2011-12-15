@@ -10,7 +10,7 @@ require 'trollop'
 opts = Trollop.options do
 	opt 'config', 'the disbatchd config file', :default => '/etc/disbatch/disbatchd.conf'
 	opt 'max', 'maximum number of threads per queue', :default => 10
-	opt 'plugins', 'path(s) to dispatch plugins', :multi => true
+	opt 'plugins', 'path(s) to dispatch plugins', :multi => true, :type => :string
 	opt 'force',  'force node registration'
 end
 
@@ -29,19 +29,45 @@ trap('TERM') { node.release; exit }
 trap('INT')  { node.release; exit }
 trap('QUIT') { node.release; exit }
 
+runners = {}
+
 EventMachine::run do
 
-	queues = Disbatch::Queue.get_all
+	EventMachine::add_periodic_timer(5) do
 
-	queues.each do |queue|
+		Disbatch::Queue.get_all.each do |queue|
 
-		next unless Disbatch::Plugin[queue.plugin]
+			# runner already exists
+			next if runners.has_key?(queue.id)
 
-		puts "Adding #{queue.plugin} runner for #{queue.id}"
+			# node configured to ignore
+			# next if queue.nodes_ignore.include?(node.id)
 
-		tg = ThreadGroup.new
+			# node pinned but not on this node
+			# next if !queue.nodes_ignore.empty? && !queue.nodes_ignore.include?(node.id)
 
-		EventMachine::add_periodic_timer(0.1) do
+			# no plugin for queue
+			next unless Disbatch::Plugin[queue.plugin]
+
+			puts "Adding #{queue.plugin} runner for #{queue.id}"
+
+			runners[queue.id] = { 'tg' => ThreadGroup.new, 'queue' => queue }
+
+		end
+
+
+		runners.each do |id, runner|
+			puts "#{id}: #{runner['queue'].plugin}: #{runner['tg'].list.length}"
+		end
+
+	end
+
+	EventMachine::add_periodic_timer(1) do
+
+		runners.each do |id, runner|
+
+			tg = runner['tg']
+			queue = runner['queue']
 
 			next unless ((nt = tg.list.length) < max && (np = queue.length) > 0)
 
