@@ -1,7 +1,7 @@
 module Disbatch
 
 	# engine version
-	VERSION = 'rdisbatch 0.0.6'
+	VERSION = 'rdisbatch 0.0.7'
 	# specification version
 	SPEC_VERSION   = '1.9'
 
