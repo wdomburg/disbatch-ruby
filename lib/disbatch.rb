@@ -1,11 +1,12 @@
 module Disbatch
 
 	# engine version
-	VERSION = 'rdisbatch 0.0.8'
+	VERSION = 'rdisbatch 0.0.9'
 	# specification version
 	SPEC_VERSION   = '1.9'
 
-	attr_accessor :mongo_hosts
+	attr_accessor :mongo_host
+	attr_accessor :mongo_port
 	attr_accessor :mongo_db
 	attr_accessor :mongo_opts
 
@@ -16,6 +17,7 @@ module Disbatch
 	require 'mongo'
 	require 'socket'
 
+	require 'disbatch/error'
 	require 'disbatch/node'
 	require 'disbatch/queue'
 	require 'disbatch/plugin'
@@ -33,7 +35,11 @@ module Disbatch
 
 	# Return and cache the local node object
 	def node
-		@node ||= Disbatch::Node.get(@node_id) || Disbatch::Node.create(@node_id)
+		begin
+			@node ||= Disbatch::Node.get(@node_id)
+		rescue Disbatch::NoNodeError
+			Disbatch::Node.create(@node_id)
+		end
 	end
 
 	extend self

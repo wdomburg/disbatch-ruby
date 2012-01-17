@@ -1,6 +1,5 @@
 module Disbatch::Plugin
 
-
 	attr_reader :plugins
 
 	@plugins = {}
@@ -9,7 +8,7 @@ module Disbatch::Plugin
 	def register(plugin)
 		name = plugin.to_s
 
-		return false unless plugin.respond_to?(:execute)
+		raise Disbatch::InvalidPluginError unless plugin.respond_to?(:execute)
 
 		@plugins[name] = plugin
 		puts "Registered #{name}"
@@ -17,6 +16,7 @@ module Disbatch::Plugin
 
 	# Return a plugin by name
 	def [](name)
+		raise Disbatch::NoPluginError unless @plugins.has_key?(name)
 		@plugins[name]
 	end
 
@@ -24,7 +24,6 @@ module Disbatch::Plugin
 	def init(file)
 		begin
 			load file
-			puts "Loaded #{file}"
 		rescue
 			puts "Error loading #{file}"
 		end
@@ -36,5 +35,7 @@ module Disbatch::Plugin
 	end
 
 	extend self
+
+	init_all('disbatch/plugin/**/*')
 
 end

@@ -9,7 +9,7 @@ class Disbatch::Node
 	#
 	# @param [String] id 
 	def initialize(id)
-		@open = false
+		@registered = false
 		@id   = id
 	end
 
@@ -18,7 +18,8 @@ class Disbatch::Node
 	# @param [String] id
 	def self.get(id = Disbatch.node_id)
 		Mongo.try do
-			Disbatch.db[:nodes].find_one({:_id => id}) ? new(id) : nil
+			raise Disbatch::NoNodeError unless Disbatch.db[:nodes].find_one({:_id => id})
+			new(id)
 		end
 	end
 
@@ -45,32 +46,38 @@ class Disbatch::Node
 
 	# Register node
 	def register(force = false)
-		return true if @open
+		raise Disbatch::AlreadyRegisteredNodeError if @registered
 
-		# FIXME - check for existing registration seperately, throw exception
+		begin
+			doc = Mongo.try do
+				Disbatch.db[:nodes].find_and_modify({
+					:query  => force ? { :_id => @id } : { :_id => @id, :pid => nil },
+					:update => { :$set => {
+						:pid          => Process.pid,
+						:version      => Disbatch::VERSION,
+						:spec_version => Disbatch::SPEC_VERSION
+					} }
+				})
+			end
+		rescue
+			doc = Mongo.try do
+				Disbatch.db[:nodes].find({ :_id => @id })
+			end
 
-		doc = Mongo.try do
-			Disbatch.db[:nodes].find_and_modify({
-				:query  => force ? { :_id => @id } : { :_id => @id, :pid => nil },
-				:update => { :$set => {
-					:pid          => Process.pid,
-					:version      => Disbatch::VERSION,
-					:spec_version => Disbatch::SPEC_VERSION
-				} }
-			})
+			if doc.count == 0
+				raise Disbatch::NoNodeError
+			else
+				raise Disbatch::RegisteredNodeError
+			end
 		end
 
-		if doc.nil?
-			false
-		else
-			@open = true
-			self
-		end
+		@registered = true
+		self
 	end
 
 	# Release ownership of node
 	def release
-		return false unless @open
+		raise Disbatch::NotRegisteredNodeError unless @registered
 
 		doc = Mongo.try do
 			Disbatch.db[:nodes].find_and_modify({
@@ -86,13 +93,14 @@ class Disbatch::Node
 		if doc.nil? 
 			false
 		else
-			@open = false
+			@registered = false
 			true
 		end
 	end
 
-	def open?
-		@open
+	# Check if process is registered as this node.
+	def registered?
+		@registered
 	end
 
 	# Check equality with another node object
@@ -101,5 +109,8 @@ class Disbatch::Node
 	def ==(node)
 		@id == node.id
 	end
+
+	# Deprecated.
+	alias :open? :registered?
 
 end

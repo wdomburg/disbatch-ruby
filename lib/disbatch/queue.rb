@@ -1,7 +1,7 @@
 # Represents a Disbatch queue
 class Disbatch::Queue
 
-	require 'disbatch/queue/task'
+	require 'disbatch/task'
 
 	attr_reader :plugin, :id
 
@@ -24,9 +24,7 @@ class Disbatch::Queue
 			Disbatch.db[:queues].find_one({:_id => id})
 		end
 
-		unless doc.nil?
-			new(doc['class'], id)
-		end
+		raise Disbatch::NoQueueError if doc.nil?
 	end
 
 	# Get all existing queues
@@ -46,8 +44,7 @@ class Disbatch::Queue
 	# @option opts [Array] nodes_pin
 	# @option opts [Array] nodes_ignore
 	def self.create(plugin, opts={})
-		
-		# Throw exception if plugin doesn't exist?
+		raise Disbatch::NoPluginError unless Disbatch::Plugin[plugin]
 		
 		id           = opts[:id]           || BSON::ObjectId.new.to_s
 		maxthreads   = opts[:maxthreads]   || 10
@@ -70,7 +67,6 @@ class Disbatch::Queue
 		unless doc.nil?
 			new(plugin, id)
 		end
-
 	end
 
 	# Number of pending tasks
@@ -80,13 +76,13 @@ class Disbatch::Queue
 
 	# Push a new task onto the queue
 	def push(parameters)
-		Disbatch::Queue::Task.create(self, parameters)
+		Disbatch::Task.create(self, parameters)
 		self
 	end
 		
 	# Pop a task off the queue
 	def pop
-		Disbatch::Queue::Task.take(self)
+		Disbatch::Task.take(self)
 	end
 
 	# Check equality with another queue object

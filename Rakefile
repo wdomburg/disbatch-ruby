@@ -4,7 +4,7 @@ require 'yard'
 
 spec = Gem::Specification.new do |s| 
 	s.name = "disbatch"
-	s.version = "0.0.8"
+	s.version = "0.0.9"
 	s.author = "Matthew Berg"
 	s.email = "mberg@synacor.com"
 	s.homepage = "http://disbatch.org/projects/disbatch-ruby"

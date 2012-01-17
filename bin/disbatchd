@@ -11,6 +11,9 @@ opts = Trollop.options do
 	opt 'config', 'the disbatchd config file', :default => '/etc/disbatch/disbatchd.conf'
 	opt 'max', 'maximum number of threads per queue', :default => 10
 	opt 'plugins', 'path(s) to dispatch plugins', :multi => true, :type => :string
+    opt 'mongo_host', 'mongo host'
+    opt 'mongo_port', 'mongo port'
+    opt 'mongo_db', 'mongo db'
 	opt 'force',  'force node registration'
 end
 
@@ -20,25 +23,27 @@ config = opts.merge(config)
 force = config['force'] || false
 
 node = Disbatch.node.register(force)
-max  = config['max']
+max  = config.has_key?('max') ? config['max'] : 10
 
-config.has_key?('plugins') && config['plugins'].each { |dir| Disbatch::Plugin.init_all(dir) }
 Disbatch::Plugin.init_all(File.dirname(File.expand_path(__FILE__)) + '/../lib/disbatch/plugin/**/*.rb')
+config.has_key?('plugins') && config['plugins'].each { |dir| Disbatch::Plugin.init_all(dir) }
+
+config.has_key?('mongo_host') && Disbatch.mongo_host = config['mongo_host']
+config.has_key?('mongo_port') && Disbatch.mongo_port = config['mongo_port']
+config.has_key?('mongo_db') && Disbatch.mongo_db = config['mongo_db']
 
 trap('TERM') { node.release; exit }
 trap('INT')  { node.release; exit }
 trap('QUIT') { node.release; exit }
 
-runners = {}
+@runners = {}
 
-EventMachine::run do
-
-	EventMachine::add_periodic_timer(5) do
+def update_queues
 
 		Disbatch::Queue.get_all.each do |queue|
 
 			# runner already exists
-			next if runners.has_key?(queue.id)
+			next if @runners.has_key?(queue.id)
 
 			# node configured to ignore
 			# next if queue.nodes_ignore.include?(node.id)
@@ -51,20 +56,29 @@ EventMachine::run do
 
 			puts "Adding #{queue.plugin} runner for #{queue.id}"
 
-			runners[queue.id] = { 'tg' => ThreadGroup.new, 'queue' => queue }
+			@runners[queue.id] = { 'tg' => ThreadGroup.new, 'queue' => queue }
 
 		end
 
+end
 
-		runners.each do |id, runner|
+update_queues
+
+EventMachine::run do
+
+	EventMachine::add_periodic_timer(5) do
+
+		update_queues
+
+		@runners.each do |id, runner|
 			puts "#{id}: #{runner['queue'].plugin}: #{runner['tg'].list.length}"
 		end
 
 	end
 
-	EventMachine::add_periodic_timer(1) do
+	EventMachine::add_periodic_timer(0.5) do
 
-		runners.each do |id, runner|
+		@runners.each do |id, runner|
 
 			tg = runner['tg']
 			queue = runner['queue']
