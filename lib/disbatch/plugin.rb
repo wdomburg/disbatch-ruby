@@ -25,7 +25,7 @@ module Disbatch::Plugin
 		begin
 			load file
 		rescue
-			puts "Error loading #{file}"
+			raise Disbatch::FailedLoadPluginError
 		end
 	end
 

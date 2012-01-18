@@ -85,6 +85,18 @@ class Disbatch::Queue
 		Disbatch::Task.take(self)
 	end
 
+	def nodes_pin
+		doc = Disbatch.db[:queues].find_one({:_id => self.id}, {:fields=> [ :nodes_pin ] })
+
+		return doc['nodes_pin'] || []
+	end
+
+	def nodes_ignore
+		doc = Disbatch.db[:queues].find_one({:_id => self.id}, {:fields=> [ :nodes_ignore ] })
+
+		return doc['nodes_ignore'] || []
+	end
+
 	# Check equality with another queue object
 	#
 	# @param[Disbatch::Queue] queue another queue to compare against
