@@ -7,6 +7,15 @@ class Disbatch::Task
 
 	private_class_method :new
 
+	module Status
+		BLOCKED    = -4
+		TERMINATED = -3
+		CREATED    = -2
+		CLAIMED    = -1
+		RUNNING    =  0
+		CONCLUDED  =  1
+	end
+
 	# Create a task object
 	#
 	# @param [Disbatch::Queue] queue
@@ -24,8 +33,8 @@ class Disbatch::Task
 	def self.take(queue)
 		doc = Mongo.try do
 			Disbatch.db[:tasks].find_and_modify({
-				:query => { :queue => queue.id, :status => -2 },
-				:update => { :$set => { :node => Disbatch.node.id, :status => -1, } }
+				:query => { :queue => queue.id, :status => Status::CREATED },
+				:update => { :$set => { :node => Disbatch.node.id, :status => Status::CLAIMED, } }
 			})
 		end
 
@@ -46,7 +55,7 @@ class Disbatch::Task
 			:ctime => Time.now,
 			:mtime => Time.now,
 			:node => -1,
-			:status => -2,
+			:status => Status::CREATED,
 			:stdout => '',
 			:stderr => '',
 			:log => []
@@ -119,17 +128,17 @@ class Disbatch::Task
 
 	# Fail task
 	def fail
-		self.status=-3
+		self.status=Status::TERMINATED
 	end
 
 	# Release task
 	def release
-		self.status=-2
+		self.status=Status::CREATED
 	end
 
 	# Conclude task
 	def conclude
-		self.status=1
+		self.status=Status::CONCLUDED
 	end
 
 	# Execute the task

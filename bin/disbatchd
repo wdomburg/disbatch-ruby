@@ -46,10 +46,10 @@ def update_queues
 			next if @runners.has_key?(queue.id)
 
 			# node configured to ignore
-			# next if queue.nodes_ignore.include?(node.id)
+			next if queue.nodes_ignore.include?(Disbatch.node_id)
 
 			# node pinned but not on this node
-			# next if !queue.nodes_ignore.empty? && !queue.nodes_ignore.include?(node.id)
+			next if !queue.nodes_pin.empty? && !queue.nodes_pin.include?(Disbatch.node_id)
 
 			# no plugin for queue
 			next unless Disbatch::Plugin[queue.plugin]
