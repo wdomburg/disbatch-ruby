@@ -52,7 +52,7 @@ def update_queues
 			next if !queue.nodes_pin.empty? && !queue.nodes_pin.include?(Disbatch.node_id)
 
 			# no plugin for queue
-			next unless Disbatch::Plugin[queue.plugin]
+			next unless Disbatch::Plugin.exists?(queue.plugin)
 
 			puts "Adding #{queue.plugin} runner for #{queue.id}"
 

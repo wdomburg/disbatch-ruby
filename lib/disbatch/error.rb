@@ -21,5 +21,8 @@ module Disbatch
 	# Raised when specifying a non-existant plugin
 	class NoQueueError < RuntimeError; end
 
+	# Raised on failure to connect or open mongo
+	class NoDatabaseError < RuntimeError; end
+
 end
 

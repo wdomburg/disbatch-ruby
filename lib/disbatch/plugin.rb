@@ -20,18 +20,23 @@ module Disbatch::Plugin
 		@plugins[name]
 	end
 
+	# Check for existance of plugin
+	def exists?(name)
+		@plugins.has_key?(name)
+	end
+
 	# Attempt to load a plugin file
 	def init(file)
 		begin
 			load file
-		rescue
-			raise Disbatch::FailedLoadPluginError
+		rescue => e
+			raise Disbatch::FailedLoadPluginError, file
 		end
 	end
 
-	# Attempt to load all plugin files in a directory
-	def init_all(path)
-		Dir[path].each { |file| init(file) }
+	# Attempt to load all plugin files matched by a glob
+	def init_all(glob)
+		Dir[glob].each { |file| init(file) }
 	end
 
 	extend self

@@ -1,10 +1,10 @@
-require 'rake/gempackagetask'
-require 'rake/testtask'
+require 'rubygems'
+require 'rubygems/package_task'
 require 'yard'
 
 spec = Gem::Specification.new do |s| 
 	s.name = "disbatch"
-	s.version = "0.0.9"
+	s.version = "0.0.10"
 	s.author = "Matthew Berg"
 	s.email = "mberg@synacor.com"
 	s.homepage = "http://disbatch.org/projects/disbatch-ruby"
@@ -26,12 +26,12 @@ spec = Gem::Specification.new do |s|
 #	if defined?(RUBY_ENGINE) && RUBY_ENGINE == "jruby"
 #		s.add_dependency("jruby-openssl")
 #	end
-	#s.test_files = FileList["{test}/**/*test.rb"].to_a
+#	s.test_files = FileList["{test}/**/*test.rb"].to_a
 	s.has_rdoc = true
 	s.extra_rdoc_files = ["README", "LICENSE", "disbatch_specification.txt"]
 end
  
-Rake::GemPackageTask.new(spec) do |pkg| 
+Gem::PackageTask.new(spec) do |pkg|
 	pkg.need_tar = true 
 end 
 

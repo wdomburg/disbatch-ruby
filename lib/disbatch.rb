@@ -30,7 +30,13 @@ module Disbatch
 
 	# Return and cache the MongoDB connection pool
 	def db
-		@db ||= Mongo::Connection.new(@mongo_host, @mongo_port).db(@mongo_db)
+		begin
+			@db ||= Mongo::Connection.new(@mongo_host, @mongo_port).db(@mongo_db)
+		rescue
+			raise Disbatch::NoDatabaseError
+		end
+
+		@db
 	end
 
 	# Return and cache the local node object

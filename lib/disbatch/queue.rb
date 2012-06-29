@@ -25,6 +25,8 @@ class Disbatch::Queue
 		end
 
 		raise Disbatch::NoQueueError if doc.nil?
+
+		new(doc['class'], doc['_id'])
 	end
 
 	# Get all existing queues
